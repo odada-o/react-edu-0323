@@ -15,4 +15,14 @@ function Layout() {
     )
 }
 
+export function LayoutNone() {
+    return (
+        <div className="wrap">
+            <main id="main" className="flex gap-10  max-w-5xl mx-auto">
+                <Outlet />
+            </main>
+        </div>
+    )
+}
+
 export default Layout

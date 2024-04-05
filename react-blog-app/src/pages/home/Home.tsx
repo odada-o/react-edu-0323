@@ -1,5 +1,5 @@
 import Profile from '../../components/layout/Profile'
-import PostList from '../post/index'
+import PostList from '../post/PostList'
 
 const Home = () => {
     return (
