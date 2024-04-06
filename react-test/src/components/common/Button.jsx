@@ -1,4 +1,3 @@
-import { css } from '@emotion/react'
 import styled from 'styled-components'
 
 const Button = styled.button`
@@ -12,11 +11,10 @@ const Button = styled.button`
     }
 `
 
+// Button 컴포넌트를 상속받아서 GhostButton 컴포넌트를 만들 수 있습니다.
 export const GhostButton = styled(Button)`
     background-color: transparent;
     color: ${(props) => (props.black ? 'black' : 'white')};
 `
-
-// emotion 라이브러리를 사용해 OutlineButton을 만들어보세요.
 
 export default Button

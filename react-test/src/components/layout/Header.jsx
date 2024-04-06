@@ -1,68 +1,76 @@
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import tw from 'twin.macro'
 import styled from 'styled-components'
-import Gnb from './Gnb'
-import Button, { GhostButton, OutlineButton } from '../common/Button'
-import { css } from '@emotion/react'
+import Button from '../common/Button'
 
 const Header = () => {
+    const [selectedMenu, setSelectedMenu] = useState('home')
+
     return (
         <HeaderWrap>
-            <h1>Header</h1>
-            <Gnb />
+            <Logo>Header</Logo>
+            <Gnb id="gnb">
+                <ul>
+                    <li>
+                        <Link
+                            to="/"
+                            onClick={() => setSelectedMenu('home')}
+                            className={selectedMenu === 'home' ? 'active' : ''}
+                        >
+                            Home
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/about"
+                            onClick={() => setSelectedMenu('about')}
+                            className={selectedMenu === 'about' ? 'active' : ''}
+                        >
+                            About
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/login"
+                            onClick={() => setSelectedMenu('login')}
+                            className={selectedMenu === 'login' ? 'active' : ''}
+                        >
+                            login
+                        </Link>
+                    </li>
+                </ul>
+            </Gnb>
 
             <div className="util">
-                <Button primary>마이페이지</Button>
+                <Button primary={true}>마이페이지</Button>
                 <Button>장바구니</Button>
-                <GhostButton>로그인</GhostButton>
-                <button css={outlineButton}>회원가입</button>
+                {/* <GhostButton>로그인</GhostButton> */}
             </div>
         </HeaderWrap>
     )
 }
 
-const outlineButton = css`
-    padding: 10px 20px;
-    border: 1px solid #fff;
-    background-color: transparent;
-    color: #fff;
-    cursor: pointer;
-    &:hover {
-        opacity: 0.8;
-    }
+const HeaderWrap = tw.header`
+    flex flex-col items-center justify-between p-4 bg-gray-200
+    md:flex-row
+`
+const Logo = tw.h1`
+    text-3xl font-bold underline
 `
 
-const HeaderWrap = styled.header`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: ${(props) => props.theme.colors.primary};
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    #gnb {
-        ul {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            list-style: none;
-            li {
-                a {
-                    color: #fff;
-                    text-decoration: none;
-                }
+const Gnb = styled.nav`
+    ul {
+        ${tw`flex flex-col gap-4 md:flex-row md:gap-8`}
+        li {
+            ${tw`text-primary`}
+        }
+        a {
+            &.active {
+                ${tw`font-bold`}
             }
         }
     }
 `
-
-// const Button = styled.button`
-//     padding: 10px 20px;
-//     border: none;
-//     background-color: ${(props) => (props.primary ? 'navy' : 'white')};
-//     color: ${(props) => (props.primary ? 'white' : 'navy')};
-//     cursor: pointer;
-//     &:hover {
-//         opacity: 0.8;
-//     }
-// `
 
 export default Header

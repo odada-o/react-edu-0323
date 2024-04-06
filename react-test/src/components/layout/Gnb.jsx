@@ -11,7 +11,7 @@ const Gnb = () => {
                     <Link to="/about">About</Link>
                 </li>
                 <li>
-                    <Link to="/signin">Sign In</Link>
+                    <Link to="/login">Login</Link>
                 </li>
             </ul>
         </nav>

@@ -6,22 +6,12 @@ const Layout = () => {
     return (
         <div>
             <Header />
-            <main id="main">
+            <main id="main" style={{ height: '200vh' }}>
                 {/* {props.showTitle && <h2>{props.title}</h2>}
                 {props.children} */}
                 <Outlet />
             </main>
             <Footer />
-        </div>
-    )
-}
-
-export const LayoutNone = () => {
-    return (
-        <div>
-            <main id="main">
-                <Outlet />
-            </main>
         </div>
     )
 }

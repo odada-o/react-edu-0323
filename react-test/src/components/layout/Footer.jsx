@@ -1,38 +1,47 @@
-import React from 'react'
-import { css } from '@emotion/react'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 const Footer = () => {
     return (
-        <footer class="flex justify-between bg-gray-300" css={footerStyle}>
-            {/* tailwind theme color primary 적용 */}
-            <strong class="bg-primary text-secondary">logo</strong>
-        </footer>
+        <FooterWrap>
+            <CorpList>
+                <li>
+                    <Link to="/">이용약관</Link>
+                </li>
+                <li>
+                    <Link to="/">개인정보처리방침</Link>
+                </li>
+                <li>
+                    <Link to="/">고객센터</Link>
+                </li>
+            </CorpList>
+            <div className="mt-10 text-gray-600">Copyright © company. All rights reserved.</div>
+        </FooterWrap>
     )
 }
 
-// emotion 사용법
-// const 변수명 = css`스타일`
-const footerStyle = css`
+const FooterWrap = styled.footer`
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    #gnb {
-        ul {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            list-style: none;
-            li {
-                a {
-                    color: #fff;
-                    text-decoration: none;
-                }
-            }
+    padding: 2rem;
+    background-color: ${(props) => props.theme.colors.gray[100]};
+`
+
+const CorpList = styled.ul`
+    display: flex;
+    li {
+        &::before {
+            content: '|';
+            margin: 0 2px;
         }
+        &:first-child::before {
+            content: '';
+        }
+    }
+    a {
+        color: ${(props) => props.theme.colors.red};
+        padding: 2rem;
     }
 `
 
