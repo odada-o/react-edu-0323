@@ -1,24 +1,20 @@
-// 글로벌 스타일 적용
-import GlobalStyle from './theme/globalStyles'
-// 테마 적용
-import { ThemeProvider } from 'styled-components'
-import theme from './theme/theme'
-// tailwind css
-import './style/style.css'
+import Cat from './Cat'
+import Footer from './components/layout/Footer'
+import Header from './components/layout/Header'
+import Home from './components/views/home/Home'
+import News from './components/views/news/New'
+import OrderCoffee, { DrinkCoffee } from './grammar/Asyn'
+import Event from './grammar/Event'
 
-import Grammar from './grammar'
-import Routers from './Routers'
+// 축약형 표현 : return 문을 생략하고 괄호로 감싸기
 
 function App() {
-    return (
-        <>
-            <ThemeProvider theme={theme}>
-                <GlobalStyle />
-                <Routers />
+    const navArr = [{ title: 'Home' }, { title: 'About' }, { title: 'SignIn' }]
 
-                <Grammar />
-            </ThemeProvider>
-        </>
+    return (
+        <div className="wrap">
+            <News />
+        </div>
     )
 }
 
