@@ -1,9 +1,9 @@
-import Cat from './Cat'
 import Footer from './components/layout/Footer'
 import Header from './components/layout/Header'
-import Home from './components/views/home/Home'
 import Event from './grammar/Event'
 import State from './grammar/State'
+import Home from './views/home/Home'
+import News from './views/news/News'
 
 // 축약형 표현 : return 문을 생략하고 괄호로 감싸기
 
@@ -12,6 +12,7 @@ function App() {
 
     return (
         <div className="wrap">
+            <News />
             <State />
             <Event />
             <Header title="dashboard" nav={navArr} />

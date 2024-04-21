@@ -77,3 +77,18 @@ const latte = new OrderCoffee('라떼', 5000)
 console.log(latte.order())
 console.log(latte.making())
 console.log(latte.made())
+
+// 상속
+class SpecialCoffee extends OrderCoffee {
+    constructor(name, price, size) {
+        super(name, price)
+        this.size = size
+    }
+    special() {
+        return `오늘의 스페셜 커피는 ${this.name}입니다.`
+    }
+}
+
+const ainS = new SpecialCoffee('아인슈페너', 6000, 'tall')
+console.log(ainS.special()) // 오늘의 스페셜 커피는 아인슈페너입니다.
+console.log(ainS.order()) // 아인슈페너는 6000원 입니다.
