@@ -6,7 +6,7 @@ import { css } from '@emotion/react'
 const Header = () => {
     return (
         <HeaderWrap>
-            <h1>Header</h1>
+            <h1 className="text-3xl font-bold underline">Header</h1>
             <Gnb />
 
             <div className="util">
